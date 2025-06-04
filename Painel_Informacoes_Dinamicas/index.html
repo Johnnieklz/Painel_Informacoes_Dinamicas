@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoNow - Painel Multifuncional</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-info-circle"></i> InfoNow</h1>
+            <p>Seu painel de informações dinâmicas</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="category-selector">
+                <button class="category-btn active" data-category="countries">
+                    <i class="fas fa-globe-americas"></i> Países
+                </button>
+                <button class="category-btn" data-category="weather">
+                    <i class="fas fa-cloud-sun"></i> Clima
+                </button>
+                <button class="category-btn" data-category="movies">
+                    <i class="fas fa-film"></i> Filmes
+                </button>
+                <button class="category-btn" data-category="music">
+                    <i class="fas fa-music"></i> Música
+                </button>
+                <button class="category-btn" data-category="jokes">
+                    <i class="fas fa-laugh-squint"></i> Piadas
+                </button>
+                <button class="category-btn" data-category="birds">
+                    <i class="fas fa-dove"></i> Aves
+                </button>
+                <button class="category-btn" data-category="malware">
+                    <i class="fas fa-bug"></i> Malware
+                </button>
+            </div>
+
+            <!-- Países -->
+            <div class="search-panel" id="countries-panel">
+                <div class="language-selector">
+                    <label for="language-select">Idioma:</label>
+                    <select id="language-select">
+                        <option value="pt">Português</option>
+                        <option value="en">Inglês</option>
+                        <option value="es">Espanhol</option>
+                        <option value="fr">Francês</option>
+                        <option value="de">Alemão</option>
+                        <option value="it">Italiano</option>
+                        <option value="ru">Russo</option>
+                        <option value="el">Grego</option>
+                        <option value="nl">Holandês</option>
+                    </select>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="country-input" placeholder="Digite o nome de um país...">
+                    <button id="search-country-btn"><i class="fas fa-search"></i> Buscar</button>
+                    <button id="random-country-btn"><i class="fas fa-random"></i> Aleatório</button>
+                </div>
+            </div>
+
+            <!-- Clima -->
+            <div class="search-panel hidden" id="weather-panel">
+                <div class="search-container">
+                    <input type="text" id="city-input" placeholder="Digite o nome de uma cidade...">
+                    <button id="search-weather-btn"><i class="fas fa-search"></i> Buscar</button>
+                    <button id="current-location-weather-btn"><i class="fas fa-location-arrow"></i> Minha Localização</button>
+                </div>
+                <div class="unit-selector">
+                    <label><input type="radio" name="weather-unit" value="metric" checked> Celsius</label>
+                    <label><input type="radio" name="weather-unit" value="imperial"> Fahrenheit</label>
+                </div>
+            </div>
+
+            <!-- Filmes -->
+            <div class="search-panel hidden" id="movies-panel">
+                <div class="search-container">
+                    <input type="text" id="movie-input" placeholder="Digite o nome de um filme...">
+                    <button id="search-movie-btn"><i class="fas fa-search"></i> Buscar</button>
+                    <button id="popular-movies-btn"><i class="fas fa-fire"></i> Populares</button>
+                </div>
+                <div class="language-selector">
+                    <label for="movie-language">Idioma:</label>
+                    <select id="movie-language">
+                        <option value="pt-BR">Português</option>
+                        <option value="en-US">Inglês</option>
+                        <option value="es-ES">Espanhol</option>
+                        <option value="fr-FR">Francês</option>
+                        <option value="de-DE">Alemão</option>
+                        <option value="it-IT">Italiano</option>
+                        <option value="ru-RU">Russo</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Música -->
+            <div class="search-panel hidden" id="music-panel">
+                <div class="search-container">
+                    <input type="text" id="music-input" placeholder="Digite o nome de uma música, artista ou álbum...">
+                    <button id="search-music-btn"><i class="fas fa-search"></i> Buscar</button>
+                    <button id="top-tracks-btn"><i class="fas fa-chart-line"></i> Top Músicas</button>
+                </div>
+            </div>
+
+            <!-- Piadas -->
+            <div class="search-panel hidden" id="jokes-panel">
+                <div class="category-selector">
+                    <button class="joke-type-btn active" data-type="any">Qualquer</button>
+                    <button class="joke-type-btn" data-type="programming">Programação</button>
+                    <button class="joke-type-btn" data-type="pun">Trocadilhos</button>
+                    <button class="joke-type-btn" data-type="dark">Humor Negro</button>
+                </div>
+                <div class="joke-controls">
+                    <button id="get-joke-btn"><i class="fas fa-laugh-squint"></i> Nova Piada</button>
+                </div>
+                <div class="language-selector">
+                    <label for="joke-language">Idioma:</label>
+                    <select id="joke-language">
+                        <option value="pt">Português</option>
+                        <option value="en">Inglês</option>
+                        <option value="es">Espanhol</option>
+                        <option value="fr">Francês</option>
+                        <option value="de">Alemão</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Aves (eBird) -->
+            <div class="search-panel hidden" id="birds-panel">
+                <div class="search-container">
+                    <input type="text" id="bird-region-input" placeholder="Digite o código da região (ex: BR-SP)...">
+                    <button id="search-birds-btn"><i class="fas fa-search"></i> Buscar Aves</button>
+                </div>
+            </div>
+
+            <div class="info-display" id="info-display">
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Carregando dados...</p>
+                </div>
+            </div>
+
+            <!-- Malwere ()-->
+             <div class="search-panel hidden" id="malware-panel">
+                <div class="search-container">
+                    <input type="file" id="malware-file">
+                    <button id="analyze-malware-btn"><i class="fas fa-search"></i> Analisar Arquivo</button>
+    </div>
+</div>
+
+        </div>
+
+        <div class="terminal">
+            <div class="terminal-header">
+                <span class="terminal-title">Console InfoNow</span>
+                <span class="terminal-controls">
+                    <i class="fas fa-minus"></i>
+                    <i class="fas fa-square"></i>
+                    <i class="fas fa-times"></i>
+                </span>
+            </div>
+            <div class="terminal-body" id="terminal-output">
+                <p>> Sistema InfoNow inicializado. Digite "help" para ver os comandos disponíveis.</p>
+            </div>
+            <div class="terminal-input">
+                <span>></span>
+                <input type="text" id="terminal-input" placeholder="Digite um comando...">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
